@@ -1,11 +1,11 @@
 Summary:	jQuery JavaScript Library
 Name:		jquery
-Version:	1.2.3
-Release:	0.2
+Version:	1.2.6
+Release:	1
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://jqueryjs.googlecode.com/files/%{name}-%{version}-release.zip
-# Source0-md5:	24ff20d524fa2affb1d6eb217797341c
+# Source0-md5:	e52c549f2865700c13cb81325a49a314
 Source1:	http://plugins.jquery.com/files/%{name}.field.js_4.txt
 # Source1-md5:	0266a3bef437a17a44cdcad1aa3908de
 Source2:	http://jqueryjs.googlecode.com/svn/trunk/plugins/form/%{name}.form.js
