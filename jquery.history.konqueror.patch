@@ -1,0 +1,46 @@
+--- ./jquery.history.js	2007-02-15 15:43:05.000000000 +0200
++++ ./jquery.history.js	2009-01-08 13:03:31.920508431 +0200
+@@ -34,7 +34,7 @@
+ 			iframe.close();
+ 			iframe.location.hash = current_hash;
+ 		}
+-		else if ($.browser.safari) {
++		else if (jQuery.browser.safari) {
+ 			// etablish back/forward stacks
+ 			jQuery.historyBackStack = [];
+ 			jQuery.historyBackStack.length = history.length;
+@@ -67,7 +67,7 @@
+ 				jQuery.historyCallback(current_hash.replace(/^#/, ''));
+ 				
+ 			}
+-		} else if ($.browser.safari) {
++		} else if (jQuery.browser.safari) {
+ 			if (!jQuery.dontCheck) {
+ 				var historyDelta = history.length - jQuery.historyBackStack.length;
+ 				
+@@ -108,11 +108,9 @@
+ 	},
+ 	historyLoad: function(hash){
+ 		var newhash;
+-		
+-		if (jQuery.browser.safari) {
++		if (jQuery.browser.safari || BrowserDetect.browser == 'Konqueror') {
+ 			newhash = hash;
+-		}
+-		else {
++		}	else {
+ 			newhash = '#' + hash;
+ 			location.hash = newhash;
+ 		}
+@@ -141,7 +139,10 @@
+ 			//      URL in the browser and the "history" object are both updated correctly.
+ 			location.hash = newhash;
+ 		}
+-		else {
++		else if(BrowserDetect.browser == 'Konqueror'){
++			location.hash = newhash;
++			jQuery.historyCallback(hash);
++		}	else {
+ 		  jQuery.historyCallback(hash);
+ 		}
+ 	}
