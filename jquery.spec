@@ -1,17 +1,21 @@
+#
+# jquery plugins
+%define		field_ver	0.9.2
+%define		form_ver	2.18
+#
 Summary:	jQuery JavaScript Library
+Summary(pl.UTF-8):	biblioteka JavaScript jQuery
 Name:		jquery
-Version:	1.2.6
-Release:	3
+Version:	1.3.2
+Release:	0.1
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://jqueryjs.googlecode.com/files/%{name}-%{version}-release.zip
-# Source0-md5:	e52c549f2865700c13cb81325a49a314
-Source1:	http://plugins.jquery.com/files/%{name}.field.js_4.txt
-# Source1-md5:	0266a3bef437a17a44cdcad1aa3908de
-Source2:	http://jqueryjs.googlecode.com/svn/trunk/plugins/form/%{name}.form.js
-# Source2-md5:	a5f1e11a042a60bc1557a0c7460db46c
-Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
-# Source3-md5:	46967b9c5ee626697b977e2909fb00b1
+# Source0-md5:	4ad8132094787af619df708dbf7f1880
+Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
+# Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
+Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
+# Source2-md5:	8720eac9985a6b33e4f4087f2e01ce23
 URL:		http://jquery.com/
 BuildRequires:	rpmbuild(macros) > 1.268
 Requires:	webserver(access)
@@ -31,8 +35,24 @@ Ajax interactions to your web pages.
 
 jQuery is designed to change the way that you write JavaScript.
 
+This package also provides following jquery plugins:
+- jquery.field v%{field_ver},
+- jquery.form v%{form_ver}
+
+%description -l pl.UTF_8
+jQuery to szybka biblioteka Javascript upraszczająca przetwarzanie
+dokumentów HTML, obsługę zdarzeń, animiacji czy akcji AJAX w
+serwisach internetowych.
+
+jQuery został zaprojektowany w taki sposób by zmienić sposób
+pisania kodu JavaScript.
+
+Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
+- jquery.field v%{field_ver},
+- jquery.form v%{form_ver}
+
 %prep
-%setup -qc -a3
+%setup -qc -a1
 
 # apache1/apache2 conf
 cat > apache.conf <<'EOF'
@@ -58,16 +78,13 @@ cp -a dist/jquery.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
 # plugins
 
 # http://plugins.jquery.com/project/field, MIT/GPL v0.7
-cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
+cp -a jquery.field.min.js $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
 
 # http://plugins.jquery.com/project/form, MIT/GPL v2.04
 cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_appdir}/plugins/form.js
 
 # http://malsup.com/jquery/form/
 # TODO
-
-# http://marcgrabanski.com/code/ui-datepicker/, MIT/GPL v3.4.3
-cp -a ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -a apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
@@ -97,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc field.plugin.htm
 %dir %attr(750,root,http) %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
@@ -105,4 +123,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/*.js
 %dir %{_appdir}/plugins
 %{_appdir}/plugins/*.js
-%{_appdir}/plugins/*.css
