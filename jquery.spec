@@ -4,7 +4,7 @@
 %define		form_ver	2.18
 #
 Summary:	jQuery JavaScript Library
-Summary(pl.UTF-8):	biblioteka JavaScript jQuery
+Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.3.2
 Release:	0.1
@@ -35,17 +35,17 @@ Ajax interactions to your web pages.
 
 jQuery is designed to change the way that you write JavaScript.
 
-This package also provides following jquery plugins:
+This package also provides following jQuery plugins:
 - jquery.field v%{field_ver},
 - jquery.form v%{form_ver}
 
 %description -l pl.UTF_8
-jQuery to szybka biblioteka Javascript upraszczająca przetwarzanie
-dokumentów HTML, obsługę zdarzeń, animiacji czy akcji AJAX w
+jQuery to szybka biblioteka Javascriptu upraszczająca przetwarzanie
+dokumentów HTML, obsługę zdarzeń, animacji oraz akcji AJAX w
 serwisach internetowych.
 
-jQuery został zaprojektowany w taki sposób by zmienić sposób
-pisania kodu JavaScript.
+jQuery został zaprojektowany tak, by zmienić sposób pisania kodu w
+JavaScripcie.
 
 Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 - jquery.field v%{field_ver},
