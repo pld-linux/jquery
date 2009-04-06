@@ -16,6 +16,11 @@ Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
 # Source2-md5:	8720eac9985a6b33e4f4087f2e01ce23
+Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
+# Source3-md5:	46967b9c5ee626697b977e2909fb00b1
+Source4:	http://www.mikage.to/jquery/%{name}.history.js
+# Source4-md5:	b195f3560a66e4ba96f6644a62f83401
+Patch0:		%{name}.history.konqueror.patch
 URL:		http://jquery.com/
 BuildRequires:	rpmbuild(macros) > 1.268
 Requires:	webserver(access)
@@ -52,7 +57,9 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 - jquery.form v%{form_ver}
 
 %prep
-%setup -qc -a1
+%setup -qc -a1 -a3
+cp -a %{SOURCE4} .
+%patch0 -p1
 
 # apache1/apache2 conf
 cat > apache.conf <<'EOF'
@@ -82,6 +89,9 @@ cp -a jquery.field.min.js $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
 
 # http://plugins.jquery.com/project/form, MIT/GPL v2.04
 cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_appdir}/plugins/form.js
+
+# http://www.mikage.to/jquery/jquery_history.html, MIT
+cp -a jquery.history.js $RPM_BUILD_ROOT%{_appdir}/plugins/history.js
 
 # http://malsup.com/jquery/form/
 # TODO
@@ -126,3 +136,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/*.js
 %dir %{_appdir}/plugins
 %{_appdir}/plugins/*.js
+%{_appdir}/plugins/*.css
