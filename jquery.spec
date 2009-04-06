@@ -86,6 +86,9 @@ cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_appdir}/plugins/form.js
 # http://malsup.com/jquery/form/
 # TODO
 
+# http://marcgrabanski.com/pages/code/jquery-ui-datepicker, MIT/GPL v3.4.3
+cp -a ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
+
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -a apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 cp -a apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
