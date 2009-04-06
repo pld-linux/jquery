@@ -19,7 +19,7 @@ Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
 Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
 # Source3-md5:	46967b9c5ee626697b977e2909fb00b1
 Source4:	http://www.mikage.to/jquery/%{name}.history.js
-# Source4-md5:	b195f3560a66e4ba96f6644a62f83401
+# Source4-md5:	57da738db33bc631da21aa294746e4da
 Patch0:		%{name}.history.konqueror.patch
 URL:		http://jquery.com/
 BuildRequires:	rpmbuild(macros) > 1.268
