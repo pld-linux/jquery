@@ -23,6 +23,7 @@ Source4:	http://www.mikage.to/jquery/%{name}.history.js
 Patch0:		%{name}.history.konqueror.patch
 URL:		http://jquery.com/
 BuildRequires:	rpmbuild(macros) > 1.268
+BuildRequires:	unzip
 Requires:	webserver(access)
 Requires:	webserver(alias)
 BuildArch:	noarch
