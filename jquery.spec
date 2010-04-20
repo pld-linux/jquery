@@ -2,12 +2,12 @@
 # jquery plugins
 %define		field_ver	0.9.2
 %define		form_ver	2.18
-#
+
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.3.2
-Release:	0.1
+Release:	1
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://jqueryjs.googlecode.com/files/%{name}-%{version}-release.zip
