@@ -7,7 +7,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.3.2
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://jqueryjs.googlecode.com/files/%{name}-%{version}-release.zip
@@ -64,7 +64,9 @@ cp -a %{SOURCE4} .
 
 # apache1/apache2 conf
 cat > apache.conf <<'EOF'
-Alias /%{name} %{_appdir}
+Alias /js/jquery %{_appdir}
+# legacy
+Alias /jquery %{_appdir}
 <Directory %{_appdir}>
 	Allow from all
 </Directory>
@@ -73,7 +75,9 @@ EOF
 # lighttpd conf
 cat > lighttpd.conf <<'EOF'
 alias.url += (
-    "/%{name}" => "%{_appdir}",
+    "/js/jquery" => "%{_appdir}",
+	# legacy
+    "/jquery" => "%{_appdir}",
 )
 EOF
 
