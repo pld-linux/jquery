@@ -6,12 +6,12 @@
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
-Version:	1.3.2
-Release:	2
+Version:	1.4.2
+Release:	1
 License:	MIT / GPL
 Group:		Applications/WWW
-Source0:	http://jqueryjs.googlecode.com/files/%{name}-%{version}-release.zip
-# Source0-md5:	4ad8132094787af619df708dbf7f1880
+Source0:	http://code.jquery.com/%{name}-%{version}.min.js
+# Source0-md5:	10092eee563dec2dca82b77d2cf5a1ae
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
@@ -21,7 +21,7 @@ Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
 Source4:	http://www.mikage.to/jquery/%{name}.history.js
 # Source4-md5:	57da738db33bc631da21aa294746e4da
 Patch0:		%{name}.history.konqueror.patch
-URL:		http://jquery.com/
+URL:		http://www.jquery.com/
 BuildRequires:	rpmbuild(macros) > 1.268
 BuildRequires:	unzip
 Requires:	webserver(access)
@@ -47,8 +47,8 @@ This package also provides following jQuery plugins:
 
 %description -l pl.UTF_8
 jQuery to szybka biblioteka Javascriptu upraszczająca przetwarzanie
-dokumentów HTML, obsługę zdarzeń, animacji oraz akcji AJAX w
-serwisach internetowych.
+dokumentów HTML, obsługę zdarzeń, animacji oraz akcji AJAX w serwisach
+internetowych.
 
 jQuery został zaprojektowany tak, by zmienić sposób pisania kodu w
 JavaScripcie.
@@ -58,7 +58,8 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 - jquery.form v%{form_ver}
 
 %prep
-%setup -qc -a1 -a3
+%setup -qcT -a1 -a3
+cp -a %{SOURCE0} query.js
 cp -a %{SOURCE4} .
 %patch0 -p1
 
@@ -85,7 +86,7 @@ EOF
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}/plugins
 # core
-cp -a dist/jquery.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
+cp -a jquery.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
 
 # plugins
 
