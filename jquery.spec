@@ -22,7 +22,7 @@ Source4:	http://www.mikage.to/jquery/%{name}.history.js
 # Source4-md5:	57da738db33bc631da21aa294746e4da
 Patch0:		%{name}.history.konqueror.patch
 URL:		http://www.jquery.com/
-BuildRequires:	rpmbuild(macros) > 1.268
+BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	unzip
 Requires:	webserver(access)
 Requires:	webserver(alias)
