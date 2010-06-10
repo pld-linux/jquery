@@ -7,7 +7,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.4.2
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -59,7 +59,6 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 
 %prep
 %setup -qcT -a1 -a3
-cp -a %{SOURCE0} query.js
 cp -a %{SOURCE4} .
 %patch0 -p1
 
@@ -86,7 +85,7 @@ EOF
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}/plugins
 # core
-cp -a jquery.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
+cp -a %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery.js
 
 # plugins
 
