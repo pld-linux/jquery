@@ -6,12 +6,12 @@
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
-Version:	1.4.2
-Release:	2
+Version:	1.4.4
+Release:	1
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
-# Source0-md5:	10092eee563dec2dca82b77d2cf5a1ae
+# Source0-md5:	73a9c334c5ca71d70d092b42064f6476
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
@@ -19,7 +19,7 @@ Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
 Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
 # Source3-md5:	46967b9c5ee626697b977e2909fb00b1
 Source4:	http://www.mikage.to/jquery/%{name}.history.js
-# Source4-md5:	57da738db33bc631da21aa294746e4da
+# Source4-md5:	d035c1f13f1795e6d739cd045d6dfb9b
 Patch0:		%{name}.history.konqueror.patch
 URL:		http://www.jquery.com/
 BuildRequires:	rpmbuild(macros) >= 1.268
