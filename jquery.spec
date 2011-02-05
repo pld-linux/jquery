@@ -45,7 +45,7 @@ This package also provides following jQuery plugins:
 - jquery.field v%{field_ver},
 - jquery.form v%{form_ver}
 
-%description -l pl.UTF_8
+%description -l pl.UTF-8
 jQuery to szybka biblioteka Javascriptu upraszczająca przetwarzanie
 dokumentów HTML, obsługę zdarzeń, animacji oraz akcji AJAX w serwisach
 internetowych.
