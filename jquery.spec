@@ -7,7 +7,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.4.4
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -85,29 +85,29 @@ EOF
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}/plugins
 # core
-cp -a %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery.js
+cp -p %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.js
+mver=%(echo %{version} | cut -d. -f1,2)
+ln -s jquery-%{version}.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
+ln -s jquery-%{version}.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
 
 # plugins
 
 # http://plugins.jquery.com/project/field, MIT/GPL v0.7
-cp -a jquery.field.min.js $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
+cp -p jquery.field.min.js $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
 
 # http://plugins.jquery.com/project/form, MIT/GPL v2.04
-cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_appdir}/plugins/form.js
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_appdir}/plugins/form.js
 
 # http://www.mikage.to/jquery/jquery_history.html, MIT
-cp -a jquery.history.js $RPM_BUILD_ROOT%{_appdir}/plugins/history.js
-
-# http://malsup.com/jquery/form/
-# TODO
+cp -p jquery.history.js $RPM_BUILD_ROOT%{_appdir}/plugins/history.js
 
 # http://marcgrabanski.com/pages/code/jquery-ui-datepicker, MIT/GPL v3.4.3
-cp -a ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
+cp -p ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
-cp -a apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-cp -a apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
-cp -a lighttpd.conf $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
+cp -p apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
+cp -p apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+cp -p lighttpd.conf $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
