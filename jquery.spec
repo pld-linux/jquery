@@ -1,5 +1,7 @@
-#
-# jquery plugins
+# TODO
+# - drop the addon plugins, say in 1.7?
+
+# jquery plugin version
 %define		field_ver	0.9.2
 %define		form_ver	2.18
 
@@ -7,11 +9,13 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.6.1
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
 # Source0-md5:	a34f78c3aecd182144818eb4b7303fda
+Source10:	http://code.jquery.com/%{name}-%{version}.js
+# Source10-md5:	137d4b8b58f69c747fed3415894e73f4
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
@@ -85,10 +89,11 @@ EOF
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}/plugins
 # core
-cp -p %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.js
+cp -p %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.min.js
+cp -p %{SOURCE10} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.src.js
 mver=%(echo %{version} | cut -d. -f1,2)
-ln -s jquery-%{version}.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
-ln -s jquery-%{version}.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
+ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
+ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
 
 # plugins
 
