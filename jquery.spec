@@ -8,14 +8,14 @@
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
-Version:	1.6.1
-Release:	2
+Version:	1.6.2
+Release:	1
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
-# Source0-md5:	a34f78c3aecd182144818eb4b7303fda
+# Source0-md5:	a1a8cb16a060f6280a767187fd22e037
 Source10:	http://code.jquery.com/%{name}-%{version}.js
-# Source10-md5:	137d4b8b58f69c747fed3415894e73f4
+# Source10-md5:	12840be281cca027968c56e19ebdf6ec
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
