@@ -9,7 +9,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.6.2
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -73,6 +73,7 @@ Alias /js/jquery %{_appdir}
 Alias /jquery %{_appdir}
 <Directory %{_appdir}>
 	Allow from all
+	Options +FollowSymLinks
 </Directory>
 EOF
 
