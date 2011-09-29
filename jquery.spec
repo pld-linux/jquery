@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}/plugins
 # core
 cp -p %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.min.js
-cp -p %{SOURCE10} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.src.js
+cp -p %{SOURCE10} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.js
 mver=%(echo %{version} | cut -d. -f1,2)
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
