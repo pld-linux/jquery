@@ -3,7 +3,6 @@
 
 # jquery plugin version
 %define		field_ver	0.9.2
-%define		form_ver	2.18
 
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
@@ -45,7 +44,6 @@ jQuery is designed to change the way that you write JavaScript.
 
 This package also provides following jQuery plugins:
 - jquery.field v%{field_ver},
-- jquery.form v%{form_ver}
 
 %description -l pl.UTF-8
 jQuery to szybka biblioteka Javascriptu upraszczająca przetwarzanie
@@ -57,7 +55,6 @@ JavaScripcie.
 
 Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 - jquery.field v%{field_ver},
-- jquery.form v%{form_ver}
 
 %prep
 %setup -qcT -a1 -a3
