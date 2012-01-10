@@ -9,7 +9,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.6.4
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -18,8 +18,6 @@ Source10:	http://code.jquery.com/%{name}-%{version}.js
 # Source10-md5:	c677462551f4cc0f2af192497b50f3f5
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
-Source2:	http://plugins.jquery.com/files/%{name}.form.js_0.txt
-# Source2-md5:	8720eac9985a6b33e4f4087f2e01ce23
 Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
 # Source3-md5:	46967b9c5ee626697b977e2909fb00b1
 Source4:	http://www.mikage.to/jquery/%{name}.history.js
@@ -100,9 +98,6 @@ ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
 
 # http://plugins.jquery.com/project/field, MIT/GPL v0.7
 cp -p jquery.field.min.js $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
-
-# http://plugins.jquery.com/project/form, MIT/GPL v2.04
-cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_appdir}/plugins/form.js
 
 # http://www.mikage.to/jquery/jquery_history.html, MIT
 cp -p jquery.history.js $RPM_BUILD_ROOT%{_appdir}/plugins/history.js
