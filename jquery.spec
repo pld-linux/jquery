@@ -1,5 +1,5 @@
 # TODO
-# - drop the addon plugins, say in 1.7?
+# - drop the addon plugins, say in 1.8?
 
 # jquery plugin version
 %define		field_ver	0.9.2
@@ -15,6 +15,8 @@ Source0:	http://code.jquery.com/%{name}-%{version}.min.js
 # Source0-md5:	9118381924c51c89d9414a311ec9c97f
 Source10:	http://code.jquery.com/%{name}-%{version}.js
 # Source10-md5:	c677462551f4cc0f2af192497b50f3f5
+Source11:	apache.conf
+Source12:	lighttpd.conf
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
@@ -58,28 +60,8 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 
 %prep
 %setup -qcT -a1 -a3
-cp -a %{SOURCE4} .
+cp -p %{SOURCE4} .
 %patch0 -p1
-
-# apache1/apache2 conf
-cat > apache.conf <<'EOF'
-Alias /js/jquery %{_appdir}
-# legacy
-Alias /jquery %{_appdir}
-<Directory %{_appdir}>
-	Allow from all
-	Options +FollowSymLinks
-</Directory>
-EOF
-
-# lighttpd conf
-cat > lighttpd.conf <<'EOF'
-alias.url += (
-    "/js/jquery" => "%{_appdir}",
-	# legacy
-    "/jquery" => "%{_appdir}",
-)
-EOF
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -103,9 +85,9 @@ cp -p jquery.history.js $RPM_BUILD_ROOT%{_appdir}/plugins/history.js
 cp -p ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
-cp -p apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-cp -p apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
-cp -p lighttpd.conf $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
+cp -p %{SOURCE11} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
+cp -p %{SOURCE12} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
+cp -p $RPM_BUILD_ROOT%{_sysconfdir}/{apache,httpd}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
