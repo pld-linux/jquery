@@ -8,7 +8,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.6.4
-Release:	2
+Release:	3
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
