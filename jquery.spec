@@ -23,7 +23,6 @@ Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
 # Source3-md5:	46967b9c5ee626697b977e2909fb00b1
 Source4:	http://www.mikage.to/jquery/%{name}.history.js
 # Source4-md5:	d035c1f13f1795e6d739cd045d6dfb9b
-Patch0:		%{name}.history.konqueror.patch
 URL:		http://www.jquery.com/
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	unzip
@@ -61,7 +60,6 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 %prep
 %setup -qcT -a1 -a3
 cp -p %{SOURCE4} .
-%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
