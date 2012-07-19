@@ -8,7 +8,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.6.4
-Release:	3
+Release:	4
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -69,6 +69,7 @@ cp -p %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.min.js
 cp -p %{SOURCE10} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.js
 mver=%(echo %{version} | cut -d. -f1,2)
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
+ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.min.js
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
 
 # plugins
