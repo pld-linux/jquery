@@ -7,14 +7,14 @@
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
-Version:	1.6.4
-Release:	4
+Version:	1.7.2
+Release:	1
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
-# Source0-md5:	9118381924c51c89d9414a311ec9c97f
+# Source0-md5:	b8d64d0bc142b3f670cc0611b0aebcae
 Source10:	http://code.jquery.com/%{name}-%{version}.js
-# Source10-md5:	c677462551f4cc0f2af192497b50f3f5
+# Source10-md5:	af693f9aea7dae36fb3bef4c9b6e56fb
 Source11:	apache.conf
 Source12:	lighttpd.conf
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
@@ -60,13 +60,15 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 %prep
 %setup -qcT -a1 -a3
 cp -p %{SOURCE4} .
+cp -p %{SOURCE0} jquery.min.js
+cp -p %{SOURCE10} jquery.src.js
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appdir}/plugins
 # core
-cp -p %{SOURCE0} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.min.js
-cp -p %{SOURCE10} $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.js
+cp -p jquery.min.js $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.min.js
+cp -p jquery.src.js $RPM_BUILD_ROOT%{_appdir}/jquery-%{version}.js
 mver=%(echo %{version} | cut -d. -f1,2)
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.min.js
