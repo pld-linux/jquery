@@ -1,5 +1,5 @@
 # TODO
-# - drop the addon plugins, say in 1.8?
+# - drop the addon plugins, say in 2.0?
 
 # jquery plugin version
 %define		field_ver	0.9.2
@@ -8,7 +8,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.7.2
-Release:	1
+Release:	2
 License:	MIT / GPL
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -26,8 +26,8 @@ Source4:	http://www.mikage.to/jquery/%{name}.history.js
 URL:		http://www.jquery.com/
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	unzip
-Requires:	webserver(access)
 Requires:	webserver(alias)
+Suggests:	webserver(access)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
