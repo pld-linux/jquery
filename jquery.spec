@@ -24,7 +24,7 @@ Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
 Source4:	http://www.mikage.to/jquery/%{name}.history.js
 # Source4-md5:	d035c1f13f1795e6d739cd045d6dfb9b
 URL:		http://www.jquery.com/
-BuildRequires:	rpmbuild(macros) >= 1.268
+BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
 Requires:	webserver(alias)
 Suggests:	webserver(access)
@@ -62,6 +62,7 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 cp -p %{SOURCE4} .
 cp -p %{SOURCE0} jquery.min.js
 cp -p %{SOURCE10} jquery.src.js
+%undos -f js
 
 %install
 rm -rf $RPM_BUILD_ROOT
