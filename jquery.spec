@@ -28,6 +28,7 @@ BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
 Requires:	webserver(alias)
 Suggests:	webserver(access)
+Conflicts:	jquery-ui < 1.8.22
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
