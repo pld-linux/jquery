@@ -17,7 +17,6 @@ Source10:	http://code.jquery.com/%{name}-%{version}.js
 # Source10-md5:	08c235d357750c657ac1db7d1cf656a9
 Source11:	apache.conf
 Source12:	lighttpd.conf
-Source13:	httpd.conf
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
 # Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
 Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
@@ -29,7 +28,6 @@ BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
 Requires:	webserver(alias)
 Suggests:	webserver(access)
-Conflicts:	apache-base < 2.4.0-1
 Conflicts:	jquery-ui < 1.8.22
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -92,7 +90,7 @@ cp -p ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -p %{SOURCE11} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
 cp -p %{SOURCE12} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
-cp -p %{SOURCE13} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+cp -p $RPM_BUILD_ROOT%{_sysconfdir}/{apache,httpd}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -103,10 +101,10 @@ rm -rf $RPM_BUILD_ROOT
 %triggerun -- apache1 < 1.3.37-3, apache1-base
 %webapp_unregister apache %{_webapp}
 
-%triggerin -- apache-base
+%triggerin -- apache < 2.2.0, apache-base
 %webapp_register httpd %{_webapp}
 
-%triggerun -- apache-base
+%triggerun -- apache < 2.2.0, apache-base
 %webapp_unregister httpd %{_webapp}
 
 %triggerin -- lighttpd
