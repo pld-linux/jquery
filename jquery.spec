@@ -8,7 +8,7 @@ Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
 Version:	1.9.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
@@ -64,6 +64,8 @@ cp -p %{SOURCE4} .
 cp -p %{SOURCE0} jquery.min.js
 cp -p %{SOURCE10} jquery.src.js
 %undos -f js
+
+%{__sed} -i -e '/@ sourceMappingURL/d' jquery.min.js
 
 %install
 rm -rf $RPM_BUILD_ROOT
