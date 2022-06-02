@@ -7,14 +7,14 @@
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
-Version:	1.9.1
-Release:	3
+Version:	1.12.4
+Release:	1
 License:	MIT
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
-# Source0-md5:	397754ba49e9e0cf4e7c190da78dda05
+# Source0-md5:	4f252523d4af0b478c810c2547a63e19
 Source10:	http://code.jquery.com/%{name}-%{version}.js
-# Source10-md5:	08c235d357750c657ac1db7d1cf656a9
+# Source10-md5:	fb2d334dabf4902825df4fe6c2298b4b
 Source11:	apache.conf
 Source12:	lighttpd.conf
 Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
