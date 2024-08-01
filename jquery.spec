@@ -1,28 +1,16 @@
-# TODO
-# - drop the addon plugins, say in 2.0?
-
-# jquery plugin version
-%define		field_ver	0.9.2
-
 Summary:	jQuery JavaScript Library
 Summary(pl.UTF-8):	Biblioteka JavaScriptu jQuery
 Name:		jquery
-Version:	1.12.4
+Version:	3.7.1
 Release:	1
 License:	MIT
 Group:		Applications/WWW
 Source0:	http://code.jquery.com/%{name}-%{version}.min.js
-# Source0-md5:	4f252523d4af0b478c810c2547a63e19
+# Source0-md5:	2c872dbe60f4ba70fb85356113d8b35e
 Source10:	http://code.jquery.com/%{name}-%{version}.js
-# Source10-md5:	fb2d334dabf4902825df4fe6c2298b4b
+# Source10-md5:	12e87d2f3a4c8b347ab13a0764d420a3
 Source11:	apache.conf
 Source12:	lighttpd.conf
-Source1:	http://plugins.jquery.com/files/%{name}.field.%{field_ver}.zip
-# Source1-md5:	1bd5d766f79034904a07ddbbab5cb27a
-Source3:	http://marcgrabanski.com/code/ui-datepicker/core/core.ui.datepicker.zip
-# Source3-md5:	46967b9c5ee626697b977e2909fb00b1
-Source4:	http://www.mikage.to/jquery/%{name}.history.js
-# Source4-md5:	d035c1f13f1795e6d739cd045d6dfb9b
 URL:		http://www.jquery.com/
 BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	unzip
@@ -59,8 +47,7 @@ Pakiet ten dostarcza także dodatkowe wtyczki jQuery:
 - jquery.field v%{field_ver},
 
 %prep
-%setup -qcT -a1 -a3
-cp -p %{SOURCE4} .
+%setup -qcT
 cp -p %{SOURCE0} jquery.min.js
 cp -p %{SOURCE10} jquery.src.js
 %undos -f js
@@ -77,17 +64,6 @@ mver=%(echo %{version} | cut -d. -f1,2)
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery-$mver.js
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.min.js
 ln -s jquery-%{version}.min.js $RPM_BUILD_ROOT%{_appdir}/jquery.js
-
-# plugins
-
-# http://plugins.jquery.com/project/field, MIT/GPL v0.7
-cp -p jquery.field.min.js $RPM_BUILD_ROOT%{_appdir}/plugins/field.js
-
-# http://www.mikage.to/jquery/jquery_history.html, MIT
-cp -p jquery.history.js $RPM_BUILD_ROOT%{_appdir}/plugins/history.js
-
-# http://marcgrabanski.com/pages/code/jquery-ui-datepicker, MIT/GPL v3.4.3
-cp -p ui.datepicker.{js,css} $RPM_BUILD_ROOT%{_appdir}/plugins
 
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 cp -p %{SOURCE11} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
@@ -117,7 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc field.plugin.htm
 %dir %attr(750,root,http) %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
@@ -125,5 +100,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}
 %{_appdir}/*.js
 %dir %{_appdir}/plugins
-%{_appdir}/plugins/*.js
-%{_appdir}/plugins/*.css
